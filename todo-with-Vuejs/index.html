@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset= "utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://kit.fontawesome.com/e06ce451e3.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+    <title> TODO with VueJs </title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="todo-container">
+        <header><h3><span id= "t">T</span><span id= "o">O</span><span id= "d">D</span><span id= "o1">O</span> 
+            <span id= "l">list.</span></h3></header>
+
+        <div id="todo-wrapper">
+            <todo-item v-for="(todo, index) of todoList" 
+            :key='todo.id' :todo-text="todo.text"
+            @edit='editTodo(todo.text,index)' @delete='todoList.splice(index,1)'>
+
+            </todo-item>
+        </div>
+
+        <div class="edit-todo" :class="hideEdit"  @keydown.enter.prevent= "submitEdit">
+            <div class="edit-todo-container">
+                <h3>Edit Todo</h3>
+                <textarea class="edit-input" v-model= "editValue"> </textarea>
+            </div>
+            <span class="fas fa-edit edit-btn " @click= "submitEdit"></span> 
+        </div>
+        
+        <div class="add-todo" :class="hideAdd" @keydown.enter.prevent= "addTodo">
+            <div class="add-todo-container">
+                <h3>Add Todo</h3>
+                <textarea class="input-todo" v-model= "newTodoText"> </textarea>
+            </div>
+        </div>
+        <span class="fas fa-plus add-btn" @click= "addTodo"></span> 
+    
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>

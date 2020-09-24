@@ -1,0 +1,139 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+body{
+    background-color: #f9d342;
+    padding: 5px;
+}
+.container{
+    text-align: center;
+}
+h3{
+    text-transform: capitalize;
+    font-weight: 400;
+    margin-bottom: 5px;
+}
+@keyframes poptext{
+    0% {font-size: 0em;}
+    25% {font-size: 0.4em;}
+    50% {font-size: 0.8em;}
+    75% {font-size: 1.35em;}
+    100% {font-size: 1.2em;}
+}
+h3 span{
+    font-size: 1.2em;}
+h3 span#t{animation: poptext 0.2s;}
+h3 span#o{animation: poptext 0.3s;}
+h3 span#d{animation: poptext 0.4s;}
+h3 span#o1{animation: poptext 0.5s;}
+h3 span#l{animation: poptext 0.7s;}
+
+header{
+    border-radius: 5px;
+    position: relative;
+    background-color: #292826;
+    color: white;
+    height: 2em
+}
+
+.add-btn, .edit-btn{
+    font-size: 1.5em;
+    padding: 3px;
+    position: absolute;
+    right: 25px;
+    bottom: 25px;
+    width: 35px;
+    height: 35px;
+    /* border: 1px solid #292826 ; */
+    border-radius: 25px;
+    background-color: #d9a342;
+    color: #d9a342;
+    box-shadow: 1px 1px 10px black;
+    text-shadow: 1px 1px 2px black;
+}
+.add-btn:active,.edit-btn:active{
+    box-shadow: -1px -1px 10px black;
+    transform: translateY(-2px);   
+}
+
+.todo-wrapper{
+    padding: 10px 20px;   
+}
+
+@keyframes fadein{
+    from{opacity: 0;}
+    to{opacity: 1;}
+}
+.item{
+    position: relative;
+    margin-top: 20px;
+    padding:20px 5px;
+    border: 2px solid #292826 ;
+    border-radius: 5px;
+    animation: fadein 1s ease-in-out;
+}
+
+.edit-delete{
+    display: none;
+    height: 100%;
+}
+
+.item:hover .edit-delete{
+    display: block;
+}
+
+.edit-delete i{
+    font-size: 20px;
+}
+.edit-delete i:active{
+    transform: translateY(-2px);
+}
+.edit-delete i:first-child{
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
+.edit-delete i:last-child{
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+}
+
+.add-todo, .edit-todo{
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    display: flex;
+    background-color: rgba(249, 211, 66,0.8);
+    top: 0;
+    left: 0;
+    /* display: none; */
+}
+.add-todo-container, .edit-todo-container{
+    width: 100%;
+    margin: auto;
+}
+.edit-todo{
+    z-index: 1;
+    display: none;
+}
+.input-todo, .edit-input{
+    width: 90%;
+    height: 20vh;
+    font-size: 120%;
+    background-color: #f9d342;
+    border: 2px solid #292826 ;
+    border-radius: 5px;
+}
+
+textarea:focus{
+    outline: none;
+}
+
+
+@media screen and (min-width:1000px){
+    body{padding: 5px 15%;}
+    .input-todo, .edit-input{width: 70%;}
+}
